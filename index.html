@@ -1,166 +1,263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rolf's Cuckold Chronicles</title>
+    <title>Rolf's Cuckold-krøniker</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(-45deg, #0a0a0a, #1a0f1f, #0f1a1f, #1f0f1a);
+            background-size: 400% 400%;
+            animation: gradientShift 18s ease infinite;
+            color: #e0e0e0;
             min-height: 100vh;
-        }
-        .container {
-            max-width: 800px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #d32f2f;
-        }
-        p {
-            line-height: 1.6;
-        }
-        .options {
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
-            margin-top: 20px;
+            overflow: hidden;
+            position: relative;
         }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(255, 20, 100, 0.08), transparent 60%);
+            pointer-events: none;
+            animation: pulse 12s ease infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        .container {
+            max-width: 820px;
+            width: 92%;
+            background: rgba(15, 15, 20, 0.92);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 48px 56px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255,255,255,0.06);
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(90deg, #ff2a6d, #d9138a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        p {
+            font-size: 18px;
+            line-height: 1.75;
+            margin-bottom: 28px;
+            opacity: 0.95;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-top: 32px;
+        }
+        
         button {
-            background-color: #1976d2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.07);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 18px 24px;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 16px;
             cursor: pointer;
-            font-size: 16px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
+        
         button:hover {
-            background-color: #1565c0;
+            background: #ff2a6d;
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 20px 40px rgba(255, 42, 109, 0.4);
+            border-color: #ff2a6d;
         }
-        .hidden {
+        
+        button:active {
+            transform: scale(0.98);
+        }
+        
+        .scene {
             display: none;
+        }
+        
+        .scene.active {
+            display: block;
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .restart {
+            margin-top: 40px;
+            background: #222;
+            color: #aaa;
+            font-size: 15px;
+            padding: 14px 32px;
+        }
+        
+        .restart:hover {
+            background: #ff2a6d;
+            color: white;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Rolf's Cuckold Chronicles</h1>
-        <div id="story">
-            <p>Welcome to the twisted world where Rolf, the pathetic loser, gets relentlessly cucked by his hot wife Linnea Julianne. She's a stunning blonde with curves that drive men wild, and Rolf can only watch as she fucks superior alphas. Choose how the story unfolds.</p>
-            <p>Start by selecting Linnea's first lover:</p>
+        <h1>Rolf's Cuckold-krøniker</h1>
+        
+        <div id="intro" class="scene active">
+            <p>Velkommen til den mørke, perverse verden der Rolf – den patetiske, småpikkede taperen – blir systematisk og nådeløst cuckoldet av sin utsøkte kone Linnea Julianne.</p>
+            <p>Hun er en 28 år gammel blond gudinne med perfekte kurver, og hun elsker å bli knullet av menn som er alt Rolf aldri har vært.</p>
+            <p>Velg Linneas første elsker og la ydmykelsen begynne.</p>
+            
+            <div class="options">
+                <button onclick="startStory('Hennes sjef')">Hennes sjef</button>
+                <button onclick="startStory('Naboen')">Naboen</button>
+                <button onclick="startStory('Eksen')">Eksen</button>
+                <button onclick="startStory('En fremmed på byen')">En fremmed på byen</button>
+                <button onclick="startStory('Treningsinstruktøren')">Treningsinstruktøren</button>
+                <button onclick="startStory('Beste vennens bror')">Beste vennens bror</button>
+            </div>
         </div>
-        <div class="options" id="initial-options">
-            <button onclick="chooseLover('boss')">Her Boss</button>
-            <button onclick="chooseLover('neighbor')">The Neighbor</button>
-            <button onclick="chooseLover('ex')">Her Ex</button>
-            <button onclick="chooseLover('stranger')">A Stranger</button>
-        </div>
-        <div id="scene1" class="hidden"></div>
-        <div id="scene2" class="hidden"></div>
-        <div id="ending" class="hidden"></div>
+        
+        <div id="scene1" class="scene"></div>
+        <div id="scene2" class="scene"></div>
+        <div id="scene3" class="scene"></div>
+        <div id="ending" class="scene"></div>
     </div>
+
     <script>
-        function chooseLover(lover) {
-            document.getElementById('initial-options').classList.add('hidden');
-            let story = document.getElementById('story');
-            story.innerHTML = `<p>Linnea starts cheating with her ${lover}. Rolf comes home early and catches her in the act. She's on her knees, sucking the ${lover}'s massive cock while moaning like a whore. Rolf's tiny dick twitches in humiliation.</p><p>What does Rolf do?</p>`;
-            let options = document.createElement('div');
-            options.className = 'options';
-            options.innerHTML = `
-                <button onclick="react('watch')">Watch Silently</button>
-                <button onclick="react('join')">Try to Join</button>
-                <button onclick="react('confront')">Confront Them</button>
-                <button onclick="react('leave')">Leave Quietly</button>
+        function startStory(lover) {
+            document.getElementById('intro').classList.remove('active');
+            const s1 = document.getElementById('scene1');
+            s1.classList.add('active');
+            
+            s1.innerHTML = `
+                <p>Linnea har begynt å være utro med ${lover.toLowerCase()}. Rolf kommer hjem tidligere enn vanlig og ser henne på kne i stua – hun suger en massiv, tykk kuk mens hun stønner som en skitten hore.</p>
+                <p>Hans egen lille pikken står rett opp i buksa av ren ydmykelse.</p>
+                <p>Hva gjør Rolf nå?</p>
+                
+                <div class="options">
+                    <button onclick="react('watch')">Gjemme seg og se på</button>
+                    <button onclick="react('join')">Prøve å være med</button>
+                    <button onclick="react('confront')">Konfrontere dem</button>
+                    <button onclick="react('film')">Filme alt i smug</button>
+                    <button onclick="react('kneel')">Knele og be om å få se nærmere</button>
+                    <button onclick="react('leave')">Gå stille ut igjen</button>
+                </div>
             `;
-            story.appendChild(options);
         }
-
-        function react(reaction) {
-            let story = document.getElementById('story');
-            story.classList.add('hidden');
-            let scene1 = document.getElementById('scene1');
-            scene1.classList.remove('hidden');
+        
+        function react(choice) {
+            const s1 = document.getElementById('scene1');
+            s1.classList.remove('active');
+            const s2 = document.getElementById('scene2');
+            s2.classList.add('active');
+            
             let text = '';
-            if (reaction === 'watch') {
-                text = '<p>Rolf hides and watches as Linnea gets pounded hard. The alpha fucks her pussy raw, making her scream in ecstasy. Rolf jerks his pathetic cock, cumming prematurely on the floor.</p>';
-            } else if (reaction === 'join') {
-                text = '<p>Rolf tries to join, but Linnea laughs at his small dick. The alpha makes him clean up the creampie from her dripping cunt with his tongue.</p>';
-            } else if (reaction === 'confront') {
-                text = '<p>Rolf confronts them, but Linnea tells him to shut up and watch how a real man fucks. She rides the alpha reverse cowgirl, squirting all over Rolf\'s face.</p>';
-            } else if (reaction === 'leave') {
-                text = '<p>Rolf leaves, but Linnea texts him videos of her getting gangbanged later, turning him into a permanent cuck.</p>';
-            }
-            scene1.innerHTML = text + '<p>Now, choose the next escalation:</p>';
-            let options = document.createElement('div');
-            options.className = 'options';
-            options.innerHTML = `
-                <button onclick="escalate('public')">Go Public</button>
-                <button onclick="escalate('group')">Invite Friends</button>
-                <button onclick="escalate('permanent')">Make It Permanent</button>
-                <button onclick="escalate('humiliate')">Extra Humiliation</button>
+            if (choice === 'watch') text = 'Rolf gjemmer seg bak døra og ser på mens Linnea blir tatt hardt bakfra. Hun skriker av nytelse mens den store kuken strekker henne ut. Rolf spruter i buksa uten å røre seg.';
+            if (choice === 'join') text = 'Rolf prøver å bli med. Linnea ler høyt og tvinger ham til å slikke henne ren mens elskeren fortsetter å knulle henne.';
+            if (choice === 'confront') text = 'Rolf roper. Linnea snur seg, smiler og sier: "Se hvordan en ekte mann knuller meg, Rolf." Hun rider ham videre mens hun stirrer Rolf rett i øynene.';
+            if (choice === 'film') text = 'Rolf filmer alt. Linnea ser det, smiler og ber ham sende videoen til alle vennene deres.';
+            if (choice === 'kneel') text = 'Rolf faller på kne. Linnea trekker ham nærmere og tvinger ham til å se på mens hun blir fylt opp.';
+            if (choice === 'leave') text = 'Rolf sniker seg ut. Senere får han en video fra Linnea der hun blir tatt av to menn samtidig.';
+            
+            s2.innerHTML = `
+                <p>${text}</p>
+                <p>Nå eskalerer det. Hva skjer videre?</p>
+                
+                <div class="options">
+                    <button onclick="escalate('public')">Ta det offentlig</button>
+                    <button onclick="escalate('group')">Invitere flere menn</button>
+                    <button onclick="escalate('permanent')">Gjøre det permanent</button>
+                    <button onclick="escalate('tattoo')">Tattoo med hans navn</button>
+                    <button onclick="escalate('travel')">Reise på sexferie uten ham</button>
+                    <button onclick="escalate('cage')">Låse ham i bur</button>
+                </div>
             `;
-            scene1.appendChild(options);
         }
-
-        function escalate(escalation) {
-            let scene1 = document.getElementById('scene1');
-            scene1.classList.add('hidden');
-            let scene2 = document.getElementById('scene2');
-            scene2.classList.remove('hidden');
+        
+        function escalate(choice) {
+            const s2 = document.getElementById('scene2');
+            s2.classList.remove('active');
+            const s3 = document.getElementById('scene3');
+            s3.classList.add('active');
+            
             let text = '';
-            if (escalation === 'public') {
-                text = '<p>Linnea takes her lover to a club, fucking him in the bathroom while Rolf waits outside, hearing her moans echo.</p>';
-            } else if (escalation === 'group') {
-                text = '<p>Linnea invites more alphas over. Rolf serves drinks as they take turns filling her holes with cum.</p>';
-            } else if (escalation === 'permanent') {
-                text = '<p>Linnea divorces Rolf but keeps him as a live-in cuck, making him wear a chastity cage forever.</p>';
-            } else if (escalation === 'humiliate') {
-                text = '<p>Linnea forces Rolf to film her sessions and post them online, tagging him as the cuck husband.</p>';
-            }
-            scene2.innerHTML = text + '<p>Choose the climax:</p>';
-            let options = document.createElement('div');
-            options.className = 'options';
-            options.innerHTML = `
-                <button onclick="climax('breed')">Breeding</button>
-                <button onclick="climax('denial')">Orgasm Denial</button>
-                <button onclick="climax('cleanup')">Cleanup Duty</button>
-                <button onclick="climax('exposure')">Full Exposure</button>
+            if (choice === 'public') text = 'Linnea knuller elskeren sin på en nattklubb-toalett mens Rolf står utenfor og hører alt. Folk ser på og ler.';
+            if (choice === 'group') text = 'Hun inviterer tre mann til leiligheten. Rolf må servere drikke mens de knuller henne i alle hull.';
+            if (choice === 'permanent') text = 'Linnea flytter elskeren inn. Rolf sover på sofaen og hører dem hver eneste natt.';
+            if (choice === 'tattoo') text = 'Hun tatoverer "Property of [Navn]" rett over fitta si. Rolf må kysse den hver morgen.';
+            if (choice === 'travel') text = 'Hun reiser til Gran Canaria med to svarte menn. Rolf får daglige videoer av henne som blir doblet.';
+            if (choice === 'cage') text = 'Hun låser den lille pikken hans i et stålbur. Nøkkelen henger rundt halsen hennes mens hun blir knullet.';
+            
+            s3.innerHTML = `
+                <p>${text}</p>
+                <p>Den ultimate avslutningen – hva blir Rolfs skjebne?</p>
+                
+                <div class="options">
+                    <button onclick="finish('breed')">Hun blir gravid med en annen</button>
+                    <button onclick="finish('denial')">Permanent orgasme-nekt</button>
+                    <button onclick="finish('cleanup')">Kun rengjøringsplikt</button>
+                    <button onclick="finish('leash')">Blir ført i bånd offentlig</button>
+                    <button onclick="finish('whore')">Hun blir profesjonell hore – Rolf er halliken</button>
+                    <button onclick="finish('divorce')">Skilsmisse – men han får bo som tjener</button>
+                </div>
             `;
-            scene2.appendChild(options);
         }
-
-        function climax(choice) {
-            let scene2 = document.getElementById('scene2');
-            scene2.classList.add('hidden');
-            let ending = document.getElementById('ending');
-            ending.classList.remove('hidden');
+        
+        function finish(choice) {
+            const s3 = document.getElementById('scene3');
+            s3.classList.remove('active');
+            const end = document.getElementById('ending');
+            end.classList.add('active');
+            
             let text = '';
-            if (choice === 'breed') {
-                text = '<p>The alpha breeds Linnea, knocking her up while Rolf raises the bastard child as his own.</p>';
-            } else if (choice === 'denial') {
-                text = '<p>Linnea locks Rolf in chastity, denying him orgasms while she fucks daily.</p>';
-            } else if (choice === 'cleanup') {
-                text = '<p>Rolf\'s only role is to lick cum from Linnea\'s used pussy and ass after every session.</p>';
-            } else if (choice === 'exposure') {
-                text = '<p>The whole neighborhood knows Rolf\'s a cuck, and Linnea parades him around on a leash.</p>';
-            }
-            ending.innerHTML = text + '<p>The end. Refresh to start over.</p>';
-            let restart = document.createElement('button');
-            restart.textContent = 'Restart';
-            restart.onclick = function() { location.reload(); };
-            ending.appendChild(restart);
+            if (choice === 'breed') text = 'Linnea blir gravid med elskerens barn. Rolf får lov til å være "pappa" og oppdra barnet mens hun fortsetter å knulle andre.';
+            if (choice === 'denial') text = 'Hun kaster nøkkelen til buret. Rolf har ikke kommet på over et år mens hun har orgasme hver dag.';
+            if (choice === 'cleanup') text = 'Rolfs eneste seksuelle oppgave er å slikke hver eneste dråpe sæd ut av konas brukte hull.';
+            if (choice === 'leash') text = 'Hun tar ham med på fest kledd i hundebånd. Alle vet at han er den patetiske cucken.';
+            if (choice === 'whore') text = 'Linnea blir eskorte. Rolf kjører henne til kundene og venter i bilen mens hun tjener penger på å bli knullet.';
+            if (choice === 'divorce') text = 'De skilles. Hun beholder huset og bilen. Rolf får bo i kjelleren som hushjelp og cuck-tjener.';
+            
+            end.innerHTML = `
+                <p><strong>${text}</strong></p>
+                <p style="margin-top: 32px; font-style: italic; opacity: 0.7;">Og slik ender Rolfs patetiske liv – som Linnea Juliannes evige cuck.</p>
+                <button class="restart" onclick="location.reload()">Start en ny ydmykelse</button>
+            `;
         }
     </script>
 </body>

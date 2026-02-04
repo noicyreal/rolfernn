@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolf's Cuckold Chronicles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #d32f2f;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #1565c0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rolf's Cuckold Chronicles</h1>
+        <div id="story">
+            <p>Welcome to the twisted world where Rolf, the pathetic loser, gets relentlessly cucked by his hot wife Linnea Julianne. She's a stunning blonde with curves that drive men wild, and Rolf can only watch as she fucks superior alphas. Choose how the story unfolds.</p>
+            <p>Start by selecting Linnea's first lover:</p>
+        </div>
+        <div class="options" id="initial-options">
+            <button onclick="chooseLover('boss')">Her Boss</button>
+            <button onclick="chooseLover('neighbor')">The Neighbor</button>
+            <button onclick="chooseLover('ex')">Her Ex</button>
+            <button onclick="chooseLover('stranger')">A Stranger</button>
+        </div>
+        <div id="scene1" class="hidden"></div>
+        <div id="scene2" class="hidden"></div>
+        <div id="ending" class="hidden"></div>
+    </div>
+    <script>
+        function chooseLover(lover) {
+            document.getElementById('initial-options').classList.add('hidden');
+            let story = document.getElementById('story');
+            story.innerHTML = `<p>Linnea starts cheating with her ${lover}. Rolf comes home early and catches her in the act. She's on her knees, sucking the ${lover}'s massive cock while moaning like a whore. Rolf's tiny dick twitches in humiliation.</p><p>What does Rolf do?</p>`;
+            let options = document.createElement('div');
+            options.className = 'options';
+            options.innerHTML = `
+                <button onclick="react('watch')">Watch Silently</button>
+                <button onclick="react('join')">Try to Join</button>
+                <button onclick="react('confront')">Confront Them</button>
+                <button onclick="react('leave')">Leave Quietly</button>
+            `;
+            story.appendChild(options);
+        }
+
+        function react(reaction) {
+            let story = document.getElementById('story');
+            story.classList.add('hidden');
+            let scene1 = document.getElementById('scene1');
+            scene1.classList.remove('hidden');
+            let text = '';
+            if (reaction === 'watch') {
+                text = '<p>Rolf hides and watches as Linnea gets pounded hard. The alpha fucks her pussy raw, making her scream in ecstasy. Rolf jerks his pathetic cock, cumming prematurely on the floor.</p>';
+            } else if (reaction === 'join') {
+                text = '<p>Rolf tries to join, but Linnea laughs at his small dick. The alpha makes him clean up the creampie from her dripping cunt with his tongue.</p>';
+            } else if (reaction === 'confront') {
+                text = '<p>Rolf confronts them, but Linnea tells him to shut up and watch how a real man fucks. She rides the alpha reverse cowgirl, squirting all over Rolf\'s face.</p>';
+            } else if (reaction === 'leave') {
+                text = '<p>Rolf leaves, but Linnea texts him videos of her getting gangbanged later, turning him into a permanent cuck.</p>';
+            }
+            scene1.innerHTML = text + '<p>Now, choose the next escalation:</p>';
+            let options = document.createElement('div');
+            options.className = 'options';
+            options.innerHTML = `
+                <button onclick="escalate('public')">Go Public</button>
+                <button onclick="escalate('group')">Invite Friends</button>
+                <button onclick="escalate('permanent')">Make It Permanent</button>
+                <button onclick="escalate('humiliate')">Extra Humiliation</button>
+            `;
+            scene1.appendChild(options);
+        }
+
+        function escalate(escalation) {
+            let scene1 = document.getElementById('scene1');
+            scene1.classList.add('hidden');
+            let scene2 = document.getElementById('scene2');
+            scene2.classList.remove('hidden');
+            let text = '';
+            if (escalation === 'public') {
+                text = '<p>Linnea takes her lover to a club, fucking him in the bathroom while Rolf waits outside, hearing her moans echo.</p>';
+            } else if (escalation === 'group') {
+                text = '<p>Linnea invites more alphas over. Rolf serves drinks as they take turns filling her holes with cum.</p>';
+            } else if (escalation === 'permanent') {
+                text = '<p>Linnea divorces Rolf but keeps him as a live-in cuck, making him wear a chastity cage forever.</p>';
+            } else if (escalation === 'humiliate') {
+                text = '<p>Linnea forces Rolf to film her sessions and post them online, tagging him as the cuck husband.</p>';
+            }
+            scene2.innerHTML = text + '<p>Choose the climax:</p>';
+            let options = document.createElement('div');
+            options.className = 'options';
+            options.innerHTML = `
+                <button onclick="climax('breed')">Breeding</button>
+                <button onclick="climax('denial')">Orgasm Denial</button>
+                <button onclick="climax('cleanup')">Cleanup Duty</button>
+                <button onclick="climax('exposure')">Full Exposure</button>
+            `;
+            scene2.appendChild(options);
+        }
+
+        function climax(choice) {
+            let scene2 = document.getElementById('scene2');
+            scene2.classList.add('hidden');
+            let ending = document.getElementById('ending');
+            ending.classList.remove('hidden');
+            let text = '';
+            if (choice === 'breed') {
+                text = '<p>The alpha breeds Linnea, knocking her up while Rolf raises the bastard child as his own.</p>';
+            } else if (choice === 'denial') {
+                text = '<p>Linnea locks Rolf in chastity, denying him orgasms while she fucks daily.</p>';
+            } else if (choice === 'cleanup') {
+                text = '<p>Rolf\'s only role is to lick cum from Linnea\'s used pussy and ass after every session.</p>';
+            } else if (choice === 'exposure') {
+                text = '<p>The whole neighborhood knows Rolf\'s a cuck, and Linnea parades him around on a leash.</p>';
+            }
+            ending.innerHTML = text + '<p>The end. Refresh to start over.</p>';
+            let restart = document.createElement('button');
+            restart.textContent = 'Restart';
+            restart.onclick = function() { location.reload(); };
+            ending.appendChild(restart);
+        }
+    </script>
+</body>
+</html>
